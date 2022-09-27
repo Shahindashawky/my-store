@@ -1,0 +1,19 @@
+.header{
+    text-align: center;
+  background: #33B5E5;
+  color: #fff;
+  padding: 12px;
+    font-family: sans-serif;
+    padding-bottom: 15px;
+    padding-top: 1px;
+    margin: -8px;
+}
+a{
+    color: #ffffff;
+}
+a:active,
+a:link,
+a:hover{
+    color: black;
+    text-decoration: underline;
+}

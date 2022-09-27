@@ -1,0 +1,24 @@
+  
+<div class="product-container">
+    <img src="{{data.url}}" class="card-img-top product-image" alt="...">
+<div class="cont">
+    <h3 class="card-title">{{data.name}}</h3>
+    <p class="card-text">${{data.price}}</p>
+    <p class="card-text">{{data.description}}</p>
+
+    <select class='form-control select-input' id="quantity" #teams (change)="onSelected(teams.value,data)">
+      <option *ngFor="let opt of options"
+      [selected]="opt === ngSelect"
+      [value]="opt">
+          {{ opt }}
+      </option>
+      </select>
+    <br>
+    <button type="button"  (click)="addToCart(data)" class="btn btn-primary">Add to card</button>
+
+  </div>
+  <br>
+  <a [routerLink]="['/']" >
+    back to product list
+  </a>
+</div>

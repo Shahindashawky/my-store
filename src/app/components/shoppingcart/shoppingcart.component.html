@@ -1,0 +1,48 @@
+<div class="">
+  <div *ngIf="items.length == 0" class="empty-cart-message">no card yet</div>
+
+  <div  *ngIf="items.length != 0">
+    <div class=" cart-panel">
+<div class="cart-item"  *ngFor="let item of items">
+  <div class="cart-container">
+  <img src="{{item.url}}" class="card-img-top product-image" alt="...">
+  <div class="cart-item-details">
+    <h5>{{item.name}}</h5>
+    <p>{{ item.price | currency }}</p>
+    <p>Amount : <input type="number" id="number" name="number" value="{{item.value}}"  #input (change)="change(input.value,item)" class="number-input"
+      min="0" max="10"></p>
+  </div>
+</div>
+</div>
+</div>
+  <form (ngSubmit)="confirm()" #form="ngForm" class="form-margin">
+    <label for="name">Full Name:</label>
+
+    <input class="input form-control" type="text" placeholder="minimum 3 character"  name="name" [(ngModel)]="name" #yourname="ngModel" (change)="changename(name)" required
+           minlength="3"  >
+           <div *ngIf="yourname.invalid && yourname.dirty">
+            name invalid
+          </div>
+           <label for="name">Address:</label>
+
+           <input class="input form-control" type="text" placeholder="minimum 6 character" #youraddress="ngModel"  [(ngModel)]="address" name="address"  required
+                  minlength="6"  >
+                  <div *ngIf="youraddress.invalid && youraddress.dirty">
+                    address invalid
+                  </div>
+                  <label for="name">Credit card number:</label>
+
+                  <input class="input form-control" type="number" placeholder="15 digit number"   name="Credit"   required
+                          maxlength="15" >
+                       
+                         <br>
+
+                         <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+                         
+  </form>
+
+</div>
+
+<h1 *ngIf="items.length != 0">Total : ${{total}}</h1>
+</div>
+
