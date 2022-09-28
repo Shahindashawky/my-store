@@ -18,7 +18,7 @@
   <form (ngSubmit)="confirm()" #form="ngForm" class="form-margin">
     <label for="name">Full Name:</label>
 
-    <input class="input form-control" type="text" placeholder="minimum 3 character" [pattern]="unamePattern"   name="name" [(ngModel)]="name" #yourname="ngModel" (change)="changename(name)" required
+    <input class="input form-control" type="text" placeholder="minimum 3 character" [pattern]="unamePattern"   name="name" [(ngModel)]="name" #yourname="ngModel" (ngModelChange)="changename($event)" required
            minlength="3"  >
            <div *ngIf="yourname.invalid && yourname.dirty" style="color:red">
               User name not valid.

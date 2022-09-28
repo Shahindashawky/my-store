@@ -55,6 +55,9 @@ change(value:any,i:any){
 );
   if(value==0){
     this.items=this.cartService.clearCart(newitem.id);
+    setTimeout(() => {
+    window.alert('Your product has been deleted from the cart!')
+  }, 200)
   }
 }
 changename(name:any){

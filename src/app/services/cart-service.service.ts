@@ -47,6 +47,7 @@ window.alert('Your product has been updated to the cart!');
   clearCart(id:any) {
  this.items=this.items.filter((a:any) => a.id !== id)
     return this.items;
+
   }
 
   settotalprice(price:any){
