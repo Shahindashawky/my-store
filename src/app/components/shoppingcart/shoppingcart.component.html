@@ -18,23 +18,27 @@
   <form (ngSubmit)="confirm()" #form="ngForm" class="form-margin">
     <label for="name">Full Name:</label>
 
-    <input class="input form-control" type="text" placeholder="minimum 3 character"  name="name" [(ngModel)]="name" #yourname="ngModel" (change)="changename(name)" required
+    <input class="input form-control" type="text" placeholder="minimum 3 character" [pattern]="unamePattern"   name="name" [(ngModel)]="name" #yourname="ngModel" (change)="changename(name)" required
            minlength="3"  >
-           <div *ngIf="yourname.invalid && yourname.dirty">
-            name invalid
+           <div *ngIf="yourname.invalid && yourname.dirty" style="color:red">
+              User name not valid.
           </div>
            <label for="name">Address:</label>
 
            <input class="input form-control" type="text" placeholder="minimum 6 character" #youraddress="ngModel"  [(ngModel)]="address" name="address"  required
                   minlength="6"  >
-                  <div *ngIf="youraddress.invalid && youraddress.dirty">
+                  <div *ngIf="youraddress.invalid && youraddress.dirty" style="color:red">
                     address invalid
                   </div>
                   <label for="name">Credit card number:</label>
 
-                  <input class="input form-control" type="number" placeholder="15 digit number"   name="Credit"   required
-                          maxlength="15" >
-                       
+                  <input class="input form-control" type="text" [pattern]="crpattern" placeholder="15 digit number" #yourcredit="ngModel" [(ngModel)]="Credit"   name="Credit"   required
+                           maxlength="15" size="15" >
+                          <div *ngIf="yourcredit.invalid && yourcredit.dirty" style="color:red">
+                           
+                            Credit invalid
+                         
+                          </div>
                          <br>
 
                          <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>

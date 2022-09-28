@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProductModule } from './../../product/product.module';
 import { CartServiceService } from 'src/app/services/cart-service.service';
 import { ServiceService } from 'src/app/services/service.service';
+import { Validators } from '@angular/forms';
 
 ServiceService
 @Component({
@@ -17,8 +18,10 @@ export class ShoppingcartComponent implements OnInit {
   total=0;
   name:string="";
   address:string="";
-  Credit:number=0;
-heroForm:any;
+  Credit:string="";
+  unamePattern = "[a-zA-Z]*";
+  crpattern ="^[0-9]*$";
+
   constructor(
     private cartService: CartServiceService,private product:ProductModule,private router:Router
   ) { 
